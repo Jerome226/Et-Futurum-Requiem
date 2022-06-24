@@ -106,6 +106,10 @@ public class EtFuturumMixinPlugin implements IMixinConfigPlugin {
 			mixins.add("MixinBlockWall");
 			mixins.add("MixinBlockFence");
 		}
+
+		if(ConfigMixins.stepHeightFix) {
+			mixins.add("MixinEntity");
+		}
 		
 		if(side == MixinEnvironment.Side.CLIENT) {
 			if(ConfigMixins.furnaceCrackle) {

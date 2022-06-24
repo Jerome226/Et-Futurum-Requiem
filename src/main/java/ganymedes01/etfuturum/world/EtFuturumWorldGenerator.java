@@ -88,8 +88,8 @@ public class EtFuturumWorldGenerator implements IWorldGenerator {
 				Type[] biomeList;
 				//TODO Bone meal
 				if(ConfigBlocksItems.enableLilyOfTheValley) {
-					x = chunkX * 16 + rand.nextInt(16);
-					z = chunkZ * 16 + rand.nextInt(16);
+					x = chunkX * 16 + rand.nextInt(16) + 8;
+					z = chunkZ * 16 + rand.nextInt(16) + 8;
 					biome = world.getBiomeGenForCoords(x, z);
 					biomeList = BiomeDictionary.getTypesForBiome(biome);
 					if(ArrayUtils.contains(biomeList, Type.FOREST) && !ArrayUtils.contains(biomeList, Type.SNOWY) && world.getHeightValue(x, z) > 0) {
@@ -98,8 +98,8 @@ public class EtFuturumWorldGenerator implements IWorldGenerator {
 				}
 
 				if(ConfigBlocksItems.enableCornflower) {
-					x = chunkX * 16 + rand.nextInt(16);
-					z = chunkZ * 16 + rand.nextInt(16);
+					x = chunkX * 16 + rand.nextInt(16) + 8;
+					z = chunkZ * 16 + rand.nextInt(16) + 8;
 					biome = world.getBiomeGenForCoords(x, z);
 					biomeList = BiomeDictionary.getTypesForBiome(biome);
 					if (biome.biomeID == 132 || (ArrayUtils.contains(biomeList, Type.PLAINS) && !ArrayUtils.contains(biomeList, Type.SNOWY) && !ArrayUtils.contains(biomeList, Type.SAVANNA)) && world.getHeightValue(x, z) > 0) {
@@ -108,8 +108,8 @@ public class EtFuturumWorldGenerator implements IWorldGenerator {
 				}
 				
 				if(ConfigBlocksItems.enableSweetBerryBushes) {
-					x = chunkX * 16 + rand.nextInt(16);
-					z = chunkZ * 16 + rand.nextInt(16);
+					x = chunkX * 16 + rand.nextInt(16) + 8;
+					z = chunkZ * 16 + rand.nextInt(16) + 8;
 					biome = world.getBiomeGenForCoords(x, z);
 					biomeList = BiomeDictionary.getTypesForBiome(biome);
 					if(ArrayUtils.contains(biomeList, Type.CONIFEROUS) && world.getHeightValue(x, z) > 0) {
@@ -118,8 +118,8 @@ public class EtFuturumWorldGenerator implements IWorldGenerator {
 				}
 				
 				if(!ArrayUtils.contains(ConfigWorld.fossilDimensionBlacklist, world.provider.dimensionId)) {
-					x = chunkX * 16 + rand.nextInt(16);
-					z = chunkZ * 16 + rand.nextInt(16);
+					x = chunkX * 16 + rand.nextInt(16) + 8;
+					z = chunkZ * 16 + rand.nextInt(16) + 8;
 					biome = world.getBiomeGenForCoords(x, z);
 					biomeList = BiomeDictionary.getTypesForBiome(biome);
 					if(ConfigWorld.enableFossils && rand.nextInt(64) == 0 && (ArrayUtils.contains(biomeList, Type.SANDY) && ArrayUtils.contains(biomeList, Type.DRY) || ArrayUtils.contains(biomeList, Type.SWAMP))) {
@@ -128,8 +128,8 @@ public class EtFuturumWorldGenerator implements IWorldGenerator {
 				}
 				
 				if(ConfigBlocksItems.enableAmethyst) {
-					x = chunkX * 16 + rand.nextInt(16);
-					z = chunkZ * 16 + rand.nextInt(16);
+					x = chunkX * 16 + rand.nextInt(16) + 8;
+					z = chunkZ * 16 + rand.nextInt(16) + 8;
 					if(ConfigWorld.enableAmethystGeodes && rand.nextInt(53) == 0) {
 						new WorldGenAmethystGeode().generate(world, rand, x, rand.nextInt(52) + 9, z);
 					}
@@ -157,9 +157,9 @@ public class EtFuturumWorldGenerator implements IWorldGenerator {
 
 		if (ConfigWorld.enableOceanMonuments && ConfigBlocksItems.enablePrismarine && world.provider.dimensionId != -1 && world.provider.dimensionId != 1)
 			if (OceanMonument.canSpawnAt(world, chunkX, chunkZ)) {
-				int x = chunkX * 16 + rand.nextInt(16);
+				int x = chunkX * 16 + rand.nextInt(16) + 8;
 				int y = 256;
-				int z = chunkZ * 16 + rand.nextInt(16);
+				int z = chunkZ * 16 + rand.nextInt(16) + 8;
 				for (; y > 0; y--)
 					if (!world.isAirBlock(x, y, z))
 						break;
@@ -169,9 +169,9 @@ public class EtFuturumWorldGenerator implements IWorldGenerator {
 			}
 
 		if (ConfigBlocksItems.enableChorusFruit && !(world.provider instanceof EndWorldProvider) && world.provider.dimensionId == 1) {
-			int x = chunkX * 16 + rand.nextInt(16);
+			int x = chunkX * 16 + rand.nextInt(16) + 8;
 			int y = 256;
-			int z = chunkZ * 16 + rand.nextInt(16);
+			int z = chunkZ * 16 + rand.nextInt(16) + 8;
 			for (; y > 0; y--) {
 				if (!world.getBlock(x, y, z).isAir(world, x, y, z)) {
 					if (y > 0 && BlockChorusFlower.canPlantStay(world, x, y + 1, z)) {

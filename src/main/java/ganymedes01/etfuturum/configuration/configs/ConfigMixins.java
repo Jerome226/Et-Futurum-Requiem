@@ -15,6 +15,7 @@ public class ConfigMixins extends ConfigBase {
 	public static boolean endPortalFix;
 	public static boolean fenceWallConnectFix;
 	public static boolean furnaceCrackle;
+	public static boolean stepHeightFix;
 
 	static final String catBackport = "backported features";
 	static final String catOptimization = "optimizations";
@@ -46,6 +47,7 @@ public class ConfigMixins extends ConfigBase {
 		if(EtFuturumMixinPlugin.side == MixinEnvironment.Side.CLIENT) {
 			furnaceCrackle = cfg.getBoolean("furnaceCrackle", catBackport, true, "(Client only) Allows vanilla furnaces to have crackling sounds."); 
 		}
+		stepHeightFix = cfg.getBoolean("stepHeightFix", catFixes, true, "Makes the player able to step up even if a block would be above their head at the destination.\nModified classes: net.minecraft.entity.Entity");
 	}
 	
 }
